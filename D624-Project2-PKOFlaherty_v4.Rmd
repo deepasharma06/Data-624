@@ -25,7 +25,7 @@ Please submit both Rpubs links and .rmd files or other readable formats for tech
 <hr>
 <br>
 
-# Project Introduction
+# Project Introduction:
 
 New regulations are requiring ABC Beverage to provide a report with an outline of our manufacturing process, and a predictive model of PH including an explanation of predictive factors.
 
@@ -299,7 +299,7 @@ Removing variables with high VIF values (such as Brand.Code, Balling, and Densit
 
 ```{r}
 # Install and load the 'car' package
-install.packages("car")
+#install.packages("car")
 library(car)
 
 # Check VIF for the current model
@@ -427,6 +427,10 @@ Positive Coefficients: Features like Balling.Lvl and Oxygen.Filler are positivel
 
 
 ```{r}
+# Extract the target variable 'PH' for the test set
+testy <- student_eval_imputed$PH
+
+library(Matrix)
 # Prepare the test data (apply one-hot encoding to test set as well)
 test_predictors <- student_eval_imputed[, -which(names(student_eval_imputed) == "PH")]
 x_test <- predict(dummy_model, test_predictors)
